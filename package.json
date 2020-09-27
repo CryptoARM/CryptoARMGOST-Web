@@ -1,0 +1,14 @@
+{
+  "name": "cryptoarmgost-web",
+  "version": "1.0.0",
+  "description": "КриптоАРМ ГОСТ Web",
+  "scripts": {
+    "postinstall": "(cd internal_packages\trusted-crypto && npm install); (cd internal_packages\trusted-curl && npm install)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.digtlab.ru/trusted.ru/CryptoARMGOST-Web.git"
+  },
+  "author": "Cifrovye tekhnologii LLC",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "trusted-crypto",
+  "version": "2.0.3",
+  "description": "Trusted crypto library",
+  "main": "index.js",
+  "binary": {
+    "module_name": "trusted_crypto",
+    "module_path": "./build/Release",
+    "remote_path": "./v{version}/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://github.com/TrustedRu/CryptoARMGOST-Web/releases/download"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.41",
+    "@types/request": "^2.48.1",
+    "lint": "^1.1.2",
+    "mocha": "^6.0.1",
+    "nan": "^2.14.0",
+    "node-gyp": "^3.8.0",
+    "node-pre-gyp": "^0.13.0",
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
+    "build": "node-gyp configure && node-gyp build && tsc",
+    "test": "./node_modules/.bin/_mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrustedRu/CryptoARMGOST-Web"
+  },
+  "keywords": [
+    "trusted"
+  ],
+  "author": "Trusted Plus development team",
+  "license": "ISC"
+}

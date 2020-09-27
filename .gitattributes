@@ -1,0 +1,14 @@
+*.sh		text eol=lf
+*.cer		text=auto
+*.jpg binary
+*.png binary
+*.ico binary
+*.icns binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.exe binary
+*.dll binary
+*.dylib binary
+*.pdf binary

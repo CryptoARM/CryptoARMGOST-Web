@@ -1,0 +1,125 @@
+{
+  "name": "trusted-curl",
+  "version": "2.2.0",
+  "author": "Trusted Plus development team",
+  "contributors": [
+    "Aleksandr Gavrilov <alg@digt.ru> (https://github.com/algv)"
+  ],
+  "description": "Node bindings for libcurl. Based on the work from node-curl.",
+  "keywords": [
+    "node-curl",
+    "curl",
+    "libcurl",
+    "trusted-curl"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TrustedPlus/trusted-curl",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TrustedPlus/trusted-curl.git"
+  },
+  "binary": {
+    "module_name": "trusted_curl",
+    "module_path": "./lib/binding/",
+    "remote_path": "./v{version}/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://github.com/TrustedRu/CryptoARMGOST-Web/releases/download"
+  },
+  "bugs": {
+    "url": "https://github.com/TrustedPlus/trusted-curl/issues"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
+    "preversion": "yarn lint && yarn build:dist",
+    "build:dist": "tsc",
+    "ae": "api-extractor run --local --verbose",
+    "clean:build": "rimraf build",
+    "clean:dist": "rimraf dist",
+    "clean": "yarn clean:build && yarn clean:dist",
+    "docs": "yarn build:dist && yarn ae && api-documenter markdown -i build/api-extractor -o docs",
+    "lint": "tslint -p . -c tslint.json",
+    "lint:files": "tslint -c tslint.json",
+    "pregyp": "node-pre-gyp",
+    "prettier:all": "yarn prettier lib/**/*.js tools/**/*.js scripts/**/*.js test/**/*.js examples/**/*.js",
+    "prettier": "prettier --write",
+    "test": "mocha --require ts-node/register test/**/*.spec.ts --reporter spec --timeout 60000",
+    "test:electron": "electron-mocha --require ts-node/register test/**/*.spec.ts --reporter spec --timeout 60000",
+    "test:watch": "yarn test --watch --watch-extensions ts"
+  },
+  "binary": {
+    "module_name": "trusted_curl",
+    "module_path": "./lib/binding/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}-{libc}.tar.gz",
+    "host": "https://github.com/TrustedPlus/trusted-curl/releases/download",
+    "remote_path": "./v{version}/"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.3.8",
+    "@microsoft/api-extractor": "^7.3.2",
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/express": "^4.17.0",
+    "@types/mocha": "^5.2.7",
+    "@types/multiparty": "^0.0.32",
+    "@types/node": "^12.6.8",
+    "@types/should": "^13.0.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cookie-parser": "^1.4.4",
+    "electron-mocha": "^8.1.0",
+    "env-paths": "^2.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "express": "^4.17.1",
+    "http-auth": "^3.2.3",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "mocha": "^6.2.0",
+    "multiparty": "^4.2.1",
+    "nan": "^2.14.0",
+    "node-gyp": "^5.0.3",
+    "node-pre-gyp": "^0.13.0",
+    "np": "^5.0.3",
+    "npmlog": "^4.1.2",
+    "octonode": "^0.9.5",
+    "prettier": "^1.18.2",
+    "progress": "^2.0.3",
+    "rimraf": "^2.6.3",
+    "should": "^13.2.3",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn prettier",
+      "yarn eslint --fix",
+      "git add"
+    ],
+    "*.ts": [
+      "yarn prettier",
+      "yarn lint:files --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "np": {
+    "cleanup": false
+  },
+  "husky": {
+    "hooks": {
+      "commitmsg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}
