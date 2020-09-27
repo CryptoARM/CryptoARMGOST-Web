@@ -1,6 +1,6 @@
 {
   "name": "trusted-curl",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "author": "Trusted Plus development team",
   "contributors": [
     "Aleksandr Gavrilov <alg@digt.ru> (https://github.com/algv)"
@@ -47,13 +47,6 @@
     "test": "mocha --require ts-node/register test/**/*.spec.ts --reporter spec --timeout 60000",
     "test:electron": "electron-mocha --require ts-node/register test/**/*.spec.ts --reporter spec --timeout 60000",
     "test:watch": "yarn test --watch --watch-extensions ts"
-  },
-  "binary": {
-    "module_name": "trusted_curl",
-    "module_path": "./lib/binding/",
-    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}-{libc}.tar.gz",
-    "host": "https://github.com/TrustedPlus/trusted-curl/releases/download",
-    "remote_path": "./v{version}/"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.3.8",

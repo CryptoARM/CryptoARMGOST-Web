@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "КриптоАРМ ГОСТ Web",
   "scripts": {
-    "postinstall": "(cd ./internal_packages/trusted-crypto && npm install) && (cd ./internal_packages/trusted-curl && npm install)"
+    "postinstall": "(cd ./internal_packages/trusted-crypto && npm install) && (cd ../../internal_packages/trusted-curl && npm install)"
   },
   "repository": {
     "type": "git",
