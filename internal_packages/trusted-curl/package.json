@@ -21,7 +21,7 @@
   "binary": {
     "module_name": "trusted_curl",
     "module_path": "./lib/binding/",
-    "remote_path": "./v{version}/",
+    "remote_path": "./v1.0.0/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
     "host": "https://github.com/TrustedRu/CryptoARMGOST-Web/releases/download"
   },
